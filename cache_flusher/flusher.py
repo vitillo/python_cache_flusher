@@ -4,9 +4,9 @@ from os import system, path
 def flush():
     os = platform.system()
 
-    if os == "Windows":
+    if os == "Windows" or os.startswith("CYGWIN_NT"):
         dn = path.dirname(path.realpath(__file__))
-        fn = path.join(dn, "share", "Flush.exe")
+        fn = path.join(dn, "data", "Flush.exe")
         system(fn)
     elif os == "Darwin":
         system("purge")
