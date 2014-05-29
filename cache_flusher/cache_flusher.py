@@ -13,7 +13,7 @@ def flush():
         if not st.st_mode & stat.S_IEXEC:
             os.chmod(fn, st.st_mode | stat.S_IEXEC)
 
-        os.system(fn)
+        os.system('\"'+ fn + '\"')
     elif OS == "Darwin":
         os.system("purge")
     elif OS == "Linux":
